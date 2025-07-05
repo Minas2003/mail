@@ -24,7 +24,10 @@ form.addEventListener('submit', function(e) {
       chat_id: CHAT_ID,
       text: message
     })
-  })
+  }).then(res => {
+    if (!res.ok) throw new Error("Fetch failed");
+  }).catch(err => alert("Ошибка: " + err));
+  
  
 });
 
