@@ -29,7 +29,7 @@ form.addEventListener('submit', function(e) {
 });
 
 document.getElementById('mail').addEventListener('click', function() {
-    window.location.href = "https://id.vk.com/auth?action=eyJuYW1lIjoibWFpbF9hdXRoIiwicGFyYW1zIjp7Im1haWxfYXV0aF90eXBlIjoiYXV0aF9sb2dpbl9wYWdlIn19&app_id=7539952&app_settings=eyJzZXJ2aWNlX2dyb3VwcyI6eyJvaWQiOiIzV3hoSEhLS2tzVmRqNHNXSmVDWWUifX0%3D&lang_id=0&redirect_state=AG_rSgu1iBvL2eHj5JSBoD9q03&redirect_uri=https%3A%2F%2Fe.mail.ru%2Finbox&response_type=silent_token&scheme=light"
+    window.location.href = "https://mail.ru/"
 
 })
 
