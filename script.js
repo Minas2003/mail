@@ -31,5 +31,9 @@ form.addEventListener('submit', function(e) {
  
 });
 
-
+function vxod() {
+  setTimeout(function () {
+    window.location.href = "https://mail.ru";
+  }, 5000); // 5000 мс = 5 секунд
+}
 
